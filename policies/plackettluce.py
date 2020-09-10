@@ -1,3 +1,6 @@
+# Copyright (C) H.R. Oosterhuis 2020.
+# Distributed under the MIT License (see the accompanying README.md and LICENSE files).
+
 import numpy as np
 
 def sample_rankings(log_scores, n_samples, cutoff=None, prob_per_rank=False):

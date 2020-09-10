@@ -1,4 +1,6 @@
-import sharedmem
+# Copyright (C) H.R. Oosterhuis 2020.
+# Distributed under the MIT License (see the accompanying README.md and LICENSE files).
+
 import numpy as np
 import utils.ranking as rnk
 
@@ -217,23 +219,3 @@ def add_clicks(click_list):
     result['clicks_per_doc'] += clicks['clicks_per_doc']
     result['num_clicks'] += clicks['num_clicks']
   return result
-
-def _make_shared(numpy_matrix):
-    """
-    Avoids the copying of Read-Only shared memory.
-    """
-    if numpy_matrix is None:
-      return None
-    else:
-      shared = sharedmem.empty(numpy_matrix.shape,
-                               dtype=numpy_matrix.dtype)
-      shared[:] = numpy_matrix[:]
-      return shared
-
-def make_clicks_shared(clicks, num_proc):
-  if num_proc > 1:
-    for k in [
-        'query_freq',
-        'doc_position_display_freq',
-        'clicks_per_doc']:
-      clicks[k] = _make_shared(clicks[k])
