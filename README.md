@@ -68,9 +68,9 @@ Online/Counterfactual evaluation with an Oracle policy (LogOpt with the relevanc
 ```
 python3 oraclepolicy.py output/Webscope_C14_Set1/1000rankers.txt local_output/oraclepolicy.txt --ranker_pair 1 --neural --dataset_info_path datasets_info.txt --dataset Webscope_C14_Set1
 ```
-To get a uniform logging policy we run the same code with *--update_steps 0*, this works because it prevents LogOpt from changing the initial uniform random logging policy:
+To get a uniform logging policy we run the same code with *--update_steps 0* and without *--neural*, this works because it prevents LogOpt from changing the initial uniform random logging policy:
 ```
-python3 oraclepolicy.py output/Webscope_C14_Set1/1000rankers.txt local_output/uniformpolicy.txt --ranker_pair 1 --neural --dataset_info_path datasets_info.txt --dataset Webscope_C14_Set1 --update_steps 0
+python3 oraclepolicy.py output/Webscope_C14_Set1/1000rankers.txt local_output/uniformpolicy.txt --ranker_pair 1 --dataset_info_path datasets_info.txt --dataset Webscope_C14_Set1 --update_steps 0
 ```
 To run with a 50/50 A/B logging policy:
 ```
