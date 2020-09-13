@@ -42,7 +42,7 @@ The following command runs LogOpt where position bias is known, the *--neural* f
 python3 LogOpt.py output/Webscope_C14_Set1/1000rankers.txt local_output/LogOptBiasKnown.txt --ranker_pair 1 --neural --dataset_info_path datasets_info.txt --dataset Webscope_C14_Set1 --give_prop
 ```
 The results are stored in *local_output/LogOptBiasKnown.txt*, to replicate the results in Figure 2 and 3 this command has to be repeated 500 times per dataset, where *--ranker_pair* iterates over the numbers 1 to 500.
-The same repetition is required for the following commands.
+The same repetition is required for the all of the following commands.
 
 To run LogOpt where position bias is unknown, we remove the *--give_prop* flag, meaning the position bias will be estimated during the gathering of clicks:
 ```
